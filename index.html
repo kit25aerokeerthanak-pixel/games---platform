@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcadia - Retro Modern Game Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="logo">
+                <h1>ARCADIA</h1>
+                <span class="subtitle">Next-Gen Web Games</span>
+            </div>
+            <div class="user-stats">
+                <div class="stat-pill">
+                    <span class="stat-label">Total Score</span>
+                    <span id="global-score">0</span>
+                </div>
+            </div>
+        </header>
+
+        <main id="main-view">
+            <section class="hero">
+                <h2>Choose Your Arena</h2>
+                <p>Select a game, configure your match, and dominate the leaderboard.</p>
+            </section>
+            
+            <div class="game-grid" id="game-grid">
+                <!-- Games will be injected here -->
+            </div>
+        </main>
+
+        <section id="game-view" class="hidden">
+            <div class="game-header">
+                <button id="btn-back" class="btn btn-secondary">← Back to Hub</button>
+                <h2 id="current-game-title">Game Title</h2>
+                <div class="game-info">
+                    <span id="current-difficulty">Difficulty: Normal</span>
+                    <span id="current-players">Players: 1</span>
+                </div>
+            </div>
+            <div class="game-container" id="game-container">
+                <!-- Canvas or DOM elements for the game -->
+            </div>
+            <div class="game-controls">
+                <button id="btn-restart" class="btn btn-primary">Restart Game</button>
+            </div>
+        </section>
+
+        <!-- Setup Modal -->
+        <div id="setup-modal" class="modal hidden">
+            <div class="modal-content glass-panel">
+                <div class="modal-header">
+                    <h3 id="modal-game-title">Configure Game</h3>
+                    <button id="btn-close-modal" class="btn-icon">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="setup-form">
+                        <div class="form-group" id="players-group">
+                            <label>Number of Players</label>
+                            <div class="radio-group" id="players-options">
+                                <!-- Injected based on game -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Difficulty</label>
+                            <div class="radio-group" id="difficulty-options">
+                                <!-- Injected based on game -->
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block glow-effect">Start Game</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div id="game-over-modal" class="modal hidden">
+            <div class="modal-content glass-panel text-center">
+                <h2 id="game-over-title">Game Over!</h2>
+                <p id="game-over-message" class="highlight-text"></p>
+                <div class="score-display">
+                    <span class="score-label">Score Reward</span>
+                    <span id="final-score" class="score-value">0</span>
+                </div>
+                <div class="modal-actions">
+                    <button id="btn-play-again" class="btn btn-primary glow-effect">Play Again</button>
+                    <button id="btn-hub" class="btn btn-secondary">Return to Hub</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/store.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/games/tictactoe.js"></script>
+    <script src="js/games/snake.js"></script>
+    <script src="js/games/memory.js"></script>
+</body>
+</html>
